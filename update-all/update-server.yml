@@ -22,8 +22,8 @@
 #        - reboot
 
     - name: reboot machine
-      command: /sbin/reboot
       become: yes
+      command: /sbin/reboot
       when: rebootTrue.stat.exists
 
 #    - debug: var=rebootTrue
