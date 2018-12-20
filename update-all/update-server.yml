@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: update and upgrade
+      become: yes
+      apt:
+         name: "*"
+         state: latest
+         force_apt_get: True
