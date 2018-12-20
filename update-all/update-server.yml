@@ -7,3 +7,26 @@
          name: "*"
          state: latest
          force_apt_get: True
+    - name: autoremove unnecesary packages
+      become: yes
+      apt:
+         autoremove: yes
+         purge: yes
+    - name: check if reboot is required
+      stat:
+        path: /var/run/reboot-required
+      register: rebootTrue
+      notify:
+        - reboot
+
+    - name: reboot machine
+      command: /sbin/reboot
+      become: yes
+      when: rebootTrue.stat.exists
+
+#    - debug: var=rebootTrue
+
+#  handlers:
+#    - name: reboot
+#      become: yes
+#      command: /sbin/reboot
