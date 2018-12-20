@@ -18,8 +18,8 @@
       stat:
         path: /var/run/reboot-required
       register: rebootTrue
-      notify:
-        - reboot
+#      notify:
+#        - reboot
 
     - name: reboot machine
       command: /sbin/reboot
