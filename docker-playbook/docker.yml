@@ -1,5 +1,5 @@
 ---
-- hosts: scratch
+- hosts: dockerContainers
   become: yes
   roles:
     - roles/update_server
