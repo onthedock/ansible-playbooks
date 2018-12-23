@@ -1,0 +1,6 @@
+---
+- hosts: scratch
+  become: yes
+  roles:
+    - roles/update_server
+    - roles/docker
